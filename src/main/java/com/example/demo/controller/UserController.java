@@ -282,4 +282,11 @@ public class UserController {
 	}
 
 
+	@GetMapping("/list/search-nickname")
+	public String search(String keyword, Model model){
+		List<User> searchList = userService.search_nickname(keyword);
+		model.addAttribute("userList",searchList);
+		System.out.println("searchList : "+searchList);
+		return "search-nickname";
+	}
 }

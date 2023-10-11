@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -84,6 +85,11 @@ public class UserService {
         return existingUser.isPresent();
     }
 
+    public List<User> search_nickname(String keyword) {
+        List<User> userList = userRepository.findByNickname(keyword);
+        System.out.println("userList: " + userList);
+        return userList;
+    }
 
 
 }
