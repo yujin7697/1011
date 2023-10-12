@@ -9,6 +9,7 @@ import com.example.demo.domain.repository.BoardRepository;
 import com.example.demo.domain.repository.ReplyRepository;
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -32,7 +33,8 @@ public class BoardService {
 
 
 
-    private String uploadDir = "c://";
+    private String uploadDir = "C:/Users/Administrator/Downloads/hamohamo/src/main/resources/static/images";
+
 
     @Autowired
     private BoardRepository boardRepository;
@@ -106,6 +108,8 @@ public class BoardService {
 
         board.setFilename(filenames.toString());
         board.setFilesize(filesizes.toString());
+
+        System.out.println("board : " + board);
 
         board = boardRepository.save(board);
         boolean issaved = boardRepository.existsByNumber(board.getNumber());

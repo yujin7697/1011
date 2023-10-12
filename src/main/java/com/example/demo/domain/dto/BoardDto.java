@@ -17,7 +17,7 @@ public class BoardDto {
     private LocalDateTime date;
     private Long hits;
     private Long like_count;
-    private MultipartFile[] files;
+    private MultipartFile[] files; //이미지
 
     public static BoardDto Of(Board board) {
         BoardDto dto = new BoardDto();
